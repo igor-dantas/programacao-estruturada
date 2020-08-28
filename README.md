@@ -1,3 +1,3 @@
 # igor
-programador , engenheiro da computeação e intusiasta de hardware.
+programador , engenheiro da computação e intusiasta de hardware.
 
