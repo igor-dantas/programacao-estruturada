@@ -1,2 +1,3 @@
 # igor
-programador e maker, iniciante.
+programador , engenheiro da computeação e intusiasta de hardware.
+
