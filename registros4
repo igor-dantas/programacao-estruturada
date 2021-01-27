@@ -1,0 +1,178 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define TAM 40
+struct apartamentos
+{
+    char nome[60];
+    int  numero_apt[TAM];
+    int  n_moradores[TAM];
+    float preco[TAM];
+    float area[TAM];
+};
+struct apartamentos apt[TAM];
+
+int cadastro(struct apartamentos apt[TAM];)
+{
+    for(int i = 1; i<=TAM;i++)
+    {
+        printf("nome do responsavel do apartamento\n:");
+        setbuf(stdin, NULL);
+        fgets(apt[i].nome, 60, stdin);
+        printf("numero do apartamento\n:");
+        setbuf(stdin, NULL);
+        scanf("%d", &apt[i].numero_apt[i]);
+        printf("numero de moradores do apartamento\n:");
+        setbuf(stdin, NULL);
+        scanf("%d", &apt[i].n_moradores[i]);
+        printf("Qual a area do seu apartamento em metros quadrados\n:");
+        setbuf(stdin, NULL);
+        scanf("%f", &apt[i].area[i]);
+    }
+}
+
+int area_total(struct apartamentos apt[TAM];)
+{
+    float soma = 0.0;
+    for(int i = 1; i<=TAM;i++)
+    {
+        soma = soma + apt[i].area[i];
+    }
+    printf("a soma da area do condominio eh: %.2f metros quadrados", soma);
+}
+
+int maior_morador(struct apartamentos apt[TAM];)
+{
+    int maior;
+    maior = apt[TAM].n_moradores[1];
+    for(int i = 1; i<=TAM;i++)
+    {
+        if(apt[i].n_moradores[i] > maior)
+        {
+            maior = apt[i].n_moradores[i];
+            
+        }
+    }
+     printf("o maior numero de moradores eh: %i do apartamento numero %i que tem %.2f metros quadrados", maior, apt[TAM].numero_apt[TAM], apt[TAM].area[TAM]);
+    
+}
+
+int despesas(struct apartamentos apt[TAM];)
+{
+    float contas[TAM];
+    float total[TAM];
+    float area_total2;
+    
+    for(int i=1;i<=TAM;i++)
+    {
+        printf("\ndigite o valor em reais das despesas totais do apartamento por mes\nR$");
+        setbuf(stdin, NULL);
+        scanf("%f", &contas[i]);
+        printf("digite a área total\n:");
+        setbuf(stdin, NULL);
+        scanf("%f", &area_total2);
+        system("cls");
+        total[i] = contas[i]/area_total2;
+        printf("\n o valor a ser pago pelo apartamento %i eh R$ %.2f por mes", i, total[i]);
+    }
+}
+int main()
+{
+    int op, retorno;
+    do
+    {
+        inicio:
+        printf(">>>>>>>>>>MENU<<<<<<<<<<");
+        printf("\n1-cadastro de apartamentos.");
+        printf("\n2-area total do condominio");
+        printf("\n3-despesas por apartamento");
+        printf("\n4-apartamento com maior numero de pessoas");
+        printf("\n5-sair do programa");
+        printf("\n\n");
+        printf("Qual a opcao desejada?\n:");
+        scanf("%i", &op);
+        switch (op)
+        {
+            case 1:
+                system("cls");
+                cadastro();
+                printf("\nVoce deseja voltar para o menu inicial?");
+                printf("\n1-sim 2-nao");
+                scanf("%i", &retorno);
+                if(retorno == 1)
+                {
+                    system("cls");
+                    goto inicio;
+                }
+                else
+                {
+                    system("cls");
+                    printf("OBRIGADO!");
+                    op = 4;
+                }
+                break;
+            case 2:
+                system("cls");
+                area_total();
+                printf("\nVoce deseja voltar para o menu inicial?");
+                printf("\n1-sim 2-nao");
+                scanf("%i", &retorno);
+                if(retorno == 1)
+                {
+                    system("cls");
+                    goto inicio;
+                }
+                else
+                {
+                    system("cls");
+                    printf("OBRIGADO!");
+                    op = 4;
+                }
+                break;
+            case 3:
+                system("cls");
+                despesas();
+                printf("\nVoce deseja voltar para o menu inicial?");
+                printf("\n1-sim 2-nao");
+                scanf("%i", &retorno);
+                if(retorno == 1)
+                {
+                    system("cls");
+                    goto inicio;
+                }
+                else
+                {
+                    system("cls");
+                    printf("OBRIGADO!");
+                    op = 4;
+                }
+                break;
+            case 4:
+                system("cls");
+                maior_morador();
+                printf("\nVoce deseja voltar para o menu inicial?");
+                printf("\n1-sim 2-nao");
+                scanf("%i", &retorno);
+                if(retorno == 1)
+                {
+                    system("cls");
+                    goto inicio;
+                }
+                else
+                {
+                    system("cls");
+                    printf("OBRIGADO!");
+                    op = 4;
+                }
+                break;
+            case 5:
+                printf("saindo do programa.");
+                printf("obrigado!");
+                break;    
+        }
+    }while(op != 5);
+}
+
+
+
+
